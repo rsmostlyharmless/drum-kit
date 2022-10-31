@@ -1,27 +1,25 @@
-`use strict`;
 const drumEl = document.querySelectorAll(`.drum`);
-const buttonEl = document.querySelectorAll(`button`);
-
-for (let i = 0; i < drumEl.length; i++) {
-    drumEl[i].addEventListener(`click`, function () {
-        let btns = this.innerHTML;
-        sound(btns);
-        animation(btns);
-    });
-}
+const buttonEl = document.getElementsByName(`button`);
 
 document.addEventListener(`keydown`, function (event) {
     sound(event.key);
-    animation(event.key);
+    // animation(event.key);
 });
 
-const animation = function () {
-    buttonEl.classList.add(`pressed`);
+document.addEventListener(`click`, function () {
+    for (let i = 0; i < buttonEl.length; i++) {
+        let btns = buttonEl[i];
+        sound(btns);
+    }
+});
 
-    setTimeout(function () {
-        buttonEl.classList.remove(`pressed`);
-    }, 1000);
-};
+// const animation = function () {
+//     buttonEl.classList.add(`pressed`);
+
+//     setTimeout(function () {
+//         buttonEl.classList.remove(`pressed`);
+//     }, 1000);
+// };
 
 const sound = function (key) {
     switch (key) {
