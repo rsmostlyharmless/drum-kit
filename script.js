@@ -1,25 +1,17 @@
-const drumEl = document.querySelectorAll(`.drum`);
-const buttonEl = document.getElementsByName(`button`);
+const drumEl = document.querySelectorAll(`.drum`).length;
+
+// for (let i = 0; i < drumEl; i++) {
+//     document.querySelectorAll(`.drum`)[i].addEventListener(`click`, function () {
+//         const buttonPress = this.innerHTML;
+//         sound(buttonPress);
+//         // animation(buttonPress);
+//     });
+// }
 
 document.addEventListener(`keydown`, function (event) {
     sound(event.key);
-    // animation(event.key);
+    animation(event.key);
 });
-
-document.addEventListener(`click`, function () {
-    for (let i = 0; i < buttonEl.length; i++) {
-        let btns = buttonEl[i];
-        sound(btns);
-    }
-});
-
-// const animation = function () {
-//     buttonEl.classList.add(`pressed`);
-
-//     setTimeout(function () {
-//         buttonEl.classList.remove(`pressed`);
-//     }, 1000);
-// };
 
 const sound = function (key) {
     switch (key) {
@@ -61,4 +53,13 @@ const sound = function (key) {
         default:
             return key;
     }
+};
+
+const animation = function (keyClick) {
+    const buttonEl = document.querySelector(`.` + keyClick);
+    buttonEl.classList.add(`pressed`);
+
+    setTimeout(function () {
+        buttonEl.classList.remove(`pressed`);
+    }, 100);
 };
