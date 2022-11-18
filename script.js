@@ -1,10 +1,10 @@
 const drumEl = document.querySelectorAll(`.drum`).length;
 
-// for (let i = 0; i < drumEl; i++) {
+// for (let i = 0; i < drumEl.length; i++) {
 //     document.querySelectorAll(`.drum`)[i].addEventListener(`click`, function () {
 //         const buttonPress = this.innerHTML;
 //         sound(buttonPress);
-//         // animation(buttonPress);
+//         animation(buttonPress);
 //     });
 // }
 
